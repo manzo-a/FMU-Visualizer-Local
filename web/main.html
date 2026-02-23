@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Dinámica de Sistemas Físicos - Hub</title>
+    <title>Dinámica de Sistemas Físicos - Inicio</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script type="text/javascript" src="/eel.js"></script>
     <link
@@ -50,48 +50,45 @@
     </script>
     <style>
         .glass-panel {
-            background: rgba(255, 255, 255, 0.65);
+            background: rgba(30, 33, 48, 0.65);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .technical-grid {
             background-size: 40px 40px;
-            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0.1) 90%, transparent);
         }
     </style>
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark text-[#1A1C1E] font-display min-h-screen flex flex-col overflow-x-hidden selection:bg-primary/30">
+    class="bg-background-dark text-gray-200 font-display min-h-screen flex flex-col overflow-x-hidden selection:bg-primary/30">
     <!-- Top Navigation -->
-    <header class="sticky top-0 z-50 glass-panel border-b border-[#E5E7EB] px-6 py-4">
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/10 px-6 py-4">
         <div class="max-w-[1400px] mx-auto flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <div
-                    class="size-10 bg-[#1A1C1E] text-white flex items-center justify-center rounded shadow-industrial-sm">
+                    class="size-10 bg-[#1e2130] text-white flex items-center justify-center rounded border border-white/10 shadow-industrial-sm">
                     <span class="material-symbols-outlined text-2xl">function</span>
                 </div>
                 <div>
-                    <h1 class="text-[#1A1C1E] text-lg font-bold leading-tight tracking-tight">Dinámica de Sistemas
+                    <h1 class="text-white text-lg font-bold leading-tight tracking-tight">Dinámica de Sistemas
                         Físicos</h1>
-                    <p class="text-xs font-mono text-[#5f758c] tracking-wide">COURSE ID: PHY-302</p>
+                    <p class="text-xs font-mono text-[#5f758c] tracking-wide">SIMULADOR FMU</p>
                 </div>
             </div>
             <div class="flex items-center gap-6">
-                <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-white/50 rounded border border-[#E5E7EB]">
-                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                    <span class="text-xs font-mono text-[#5f758c]">SYSTEM ONLINE</span>
-                </div>
+
                 <div class="flex items-center gap-4">
-                    <button
-                        class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 transition-colors text-[#1A1C1E]">
+                    <button disabled onclick="alert('¡Próximamente!'); return false;"
+                        class="flex items-center justify-center size-10 rounded-full hover:bg-white/5 transition-colors text-gray-400 cursor-not-allowed">
                         <span class="material-symbols-outlined">settings</span>
                     </button>
-                    <div
-                        class="size-10 rounded-full overflow-hidden border-2 border-white shadow-sm cursor-pointer relative group bg-primary flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-xl">person</span>
+                    <div onclick="alert('¡Próximamente!'); return false;"
+                        class="size-10 rounded-full overflow-hidden border-2 border-white/20 shadow-sm cursor-not-allowed relative group bg-[#1e2130] flex items-center justify-center">
+                        <span class="material-symbols-outlined text-gray-400 text-xl">person</span>
                     </div>
                 </div>
             </div>
@@ -104,101 +101,93 @@
         <!-- Section 1: Simulation Examples -->
         <section class="mb-12">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold text-[#1A1C1E] tracking-tight flex items-center gap-2">
+                <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
                     <span class="material-symbols-outlined text-primary">deployed_code</span>
-                    Simulation Examples
+                    Ejemplos de Simulación
                 </h2>
-                <button
-                    class="text-sm font-medium text-primary hover:text-primary-dark flex items-center gap-1 transition-colors">
-                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <button disabled onclick="alert('¡Próximamente!'); return false;"
+                    class="text-sm font-medium text-gray-500 flex items-center gap-1 cursor-not-allowed">
+                    Ver Todos <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1 -->
                 <div
-                    class="group glass-panel rounded-lg p-1 border border-[#E5E7EB] hover:border-primary/50 transition-all duration-300 hover:shadow-glass">
+                    class="group glass-panel rounded-lg p-1 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-glass">
                     <div
-                        class="relative w-full aspect-video rounded overflow-hidden bg-gray-100 mb-4 border border-[#E5E7EB]">
+                        class="relative w-full aspect-video rounded overflow-hidden bg-[#1e2130] mb-4 border border-white/10">
                         <img alt="Close up of a metallic spring mechanism"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             data-alt="Close up of a metallic spring mechanism"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4SQoduKhCmY880oFAnJJfuO8Xb6y4VaR1ttUeMn1Hr7n7CHZmZoGh3PHJh7pfqL3skn2h4mYdJij8B91jw0Ue_7W35_7fCzDP0R-j_jrKB1Qo1mof5wq97X4UALTX9v-D_sZUbZduI8OeunlI6ppmcYq7VGUhDgyVVsuaRflmMP5wAGkmCMOV9vDPkmayzIQSAB6eIye6FUIClLPFaYdRkkStiT7DBmL6aGgjkrGsqiO4jmZ5iwyILPGWTgKiab-BtUtNjN66kns" />
-                        <div
-                            class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-0.5 rounded text-[10px] font-mono font-bold text-[#1A1C1E] border border-[#E5E7EB]">
-                            v2.1
-                        </div>
+
                     </div>
                     <div class="px-3 pb-4">
-                        <h3 class="text-lg font-bold text-[#1A1C1E] mb-1 group-hover:text-primary transition-colors">
-                            Mass-Spring-Damper</h3>
-                        <p class="text-sm text-[#5f758c] mb-4 line-clamp-2">Analyze oscillatory motion with adjustable
-                            damping coefficients and real-time graphs.</p>
+                        <h3 class="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">
+                            Masa-Resorte-Amortiguador</h3>
+                        <p class="text-sm text-[#9aa0b0] mb-4 line-clamp-2">Analiza el movimiento oscilatorio con
+                            coeficientes de
+                            amortiguación ajustables y gráficos en tiempo real.</p>
                         <button onclick="window.location.href='index.html'"
                             class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white h-10 rounded font-medium text-sm transition-all shadow-industrial-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
                             <span class="material-symbols-outlined text-lg">play_arrow</span>
-                            Launch Simulation
+                            Iniciar Simulación
                         </button>
                     </div>
                 </div>
                 <!-- Card 2 -->
                 <div
-                    class="group glass-panel rounded-lg p-1 border border-[#E5E7EB] hover:border-primary/50 transition-all duration-300 hover:shadow-glass">
+                    class="group glass-panel rounded-lg p-1 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-glass">
                     <div
-                        class="relative w-full aspect-video rounded overflow-hidden bg-gray-100 mb-4 border border-[#E5E7EB]">
+                        class="relative w-full aspect-video rounded overflow-hidden bg-[#1e2130] mb-4 border border-white/10">
                         <img alt="Abstract visualization of pendulum motion physics"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 grayscale"
                             data-alt="Abstract visualization of pendulum motion physics"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXo40onEgLiqtav6gtBIQW97vxLO0MH5bjRZtccgw9A8TirhKvTqooBErbJTN-Ee-9twTi7SyGpU4a3JwNKXSwfXrb8OuxJZQ6BKgHx_nUNiewli9t4-L6QuHPgZZQVHlf-WSzTzIElIMHLIt4fIK19F1mqZvq3qr_3flcFs9N7DxYWjYLsi8_l_BCCnyXSYykjM7tBEYWzecBAZQHb-aAelDC-j2xaD8x6Guc5h8Pk2um9Nz_0iwY1Xb3UwVP7dFTyohRXnuD0S0" />
-                        <div
-                            class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-0.5 rounded text-[10px] font-mono font-bold text-[#1A1C1E] border border-[#E5E7EB]">
-                            v1.4
-                        </div>
+
                     </div>
-                    <div class="px-3 pb-4">
+                    <div class="px-3 pb-4 opacity-75">
                         <div class="flex items-center gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-[#1A1C1E] group-hover:text-primary transition-colors">
-                                Double Pendulum</h3>
+                            <h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">
+                                Péndulo Doble</h3>
                             <span
-                                class="px-2 py-0.5 bg-accent-orange/10 text-accent-orange text-[10px] font-bold uppercase tracking-wider border border-accent-orange/20 rounded">Coming
-                                Soon</span>
+                                class="px-2 py-0.5 bg-[#151722] text-gray-400 text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded">Próximamente</span>
                         </div>
-                        <p class="text-sm text-[#5f758c] mb-4 line-clamp-2">Explore chaotic behavior and sensitive
-                            dependence on initial conditions in complex systems.</p>
-                        <button disabled
-                            class="w-full flex items-center justify-center gap-2 bg-gray-300 text-gray-500 h-10 rounded font-medium text-sm cursor-not-allowed">
+                        <p class="text-sm text-[#5f758c] mb-4 line-clamp-2">Explora el comportamiento caótico y la
+                            dependencia
+                            sensible a las condiciones iniciales en sistemas complejos.</p>
+                        <button disabled onclick="alert('¡Próximamente!'); return false;"
+                            class="w-full flex items-center justify-center gap-2 bg-[#1e2130] border border-white/10 text-gray-500 h-10 rounded font-medium text-sm cursor-not-allowed">
                             <span class="material-symbols-outlined text-lg">lock</span>
-                            Coming Soon
+                            Próximamente
                         </button>
                     </div>
                 </div>
                 <!-- Card 3 -->
                 <div
-                    class="group glass-panel rounded-lg p-1 border border-[#E5E7EB] hover:border-primary/50 transition-all duration-300 hover:shadow-glass">
+                    class="group glass-panel rounded-lg p-1 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:shadow-glass">
                     <div
-                        class="relative w-full aspect-video rounded overflow-hidden bg-gray-100 mb-4 border border-[#E5E7EB]">
+                        class="relative w-full aspect-video rounded overflow-hidden bg-[#1e2130] mb-4 border border-white/10">
                         <img alt="Electronic circuit board with components"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 grayscale"
                             data-alt="Electronic circuit board with components"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfMLvPLAHED47XQjX2ANQoc-YbsA_BoVICQISU-o7oLHtlWmN7aXtZdkQWY9KSI4msaZSmGnrsdq_z-ntJ8ztYDPtFfj5GBbW9agIBNqfuRJf2t8CXGpjY8a45rfM4zA_HwgyP0gaMJ1XSJXn3so_ZGsHle8IqeRX_Z3SgJ8w2fu7n-kdFqfB2bKTGh20Yglo1na2o6p0rt_sa6NJxBuXUpH_9FDvqxQug73TJ1DdLnSyiLikvk9hLBTqQ8QZMNXGnoUMoaov5IYs" />
-                        <div
-                            class="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-0.5 rounded text-[10px] font-mono font-bold text-[#1A1C1E] border border-[#E5E7EB]">
-                            v3.0
-                        </div>
+
                     </div>
-                    <div class="px-3 pb-4">
+                    <div class="px-3 pb-4 opacity-75">
                         <div class="flex items-center gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-[#1A1C1E] group-hover:text-primary transition-colors">RLC
-                                Circuits</h3>
+                            <h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">
+                                Circuitos RLC</h3>
                             <span
-                                class="px-2 py-0.5 bg-accent-orange/10 text-accent-orange text-[10px] font-bold uppercase tracking-wider border border-accent-orange/20 rounded">Coming
-                                Soon</span>
+                                class="px-2 py-0.5 bg-[#151722] text-gray-400 text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded">Próximamente</span>
                         </div>
-                        <p class="text-sm text-[#5f758c] mb-4 line-clamp-2">Visualize voltage and current responses in
-                            resonant circuits with variable capacitance.</p>
-                        <button disabled
-                            class="w-full flex items-center justify-center gap-2 bg-gray-300 text-gray-500 h-10 rounded font-medium text-sm cursor-not-allowed">
+                        <p class="text-sm text-[#5f758c] mb-4 line-clamp-2">Visualiza las respuestas de voltaje y
+                            corriente en
+                            circuitos resonantes con capacitancia variable.</p>
+                        <button disabled onclick="alert('¡Próximamente!'); return false;"
+                            class="w-full flex items-center justify-center gap-2 bg-[#1e2130] border border-white/10 text-gray-500 h-10 rounded font-medium text-sm cursor-not-allowed">
                             <span class="material-symbols-outlined text-lg">lock</span>
-                            Coming Soon
+                            Próximamente
                         </button>
                     </div>
                 </div>
@@ -206,29 +195,29 @@
         </section>
         <!-- Section 2: Advanced Mode (Feature Card) -->
         <section class="mb-12">
-            <div class="w-full glass-panel rounded-xl border border-[#E5E7EB] overflow-hidden relative group">
-                <div class="absolute inset-0 bg-gradient-to-r from-gray-100 to-transparent opacity-50 z-0"></div>
-                <div class="relative z-10 flex flex-col md:flex-row items-center p-8 gap-8">
-                    <div class="bg-white p-6 rounded-lg border border-[#E5E7EB] shadow-sm flex-shrink-0">
+            <div class="w-full glass-panel rounded-xl border border-white/10 overflow-hidden relative group">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1a1d27] to-transparent opacity-50 z-0"></div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center p-8 gap-8 opacity-75">
+                    <div class="bg-[#1e2130] p-6 rounded-lg border border-white/10 shadow-sm flex-shrink-0">
                         <span class="material-symbols-outlined text-6xl text-[#5f758c]">construction</span>
                     </div>
                     <div class="flex-1 text-center md:text-left">
                         <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
-                            <h2 class="text-2xl font-bold text-[#1A1C1E]">Custom System Builder</h2>
+                            <h2 class="text-2xl font-bold text-white">Constructor de Sistemas Personalizados</h2>
                             <span
-                                class="px-2 py-0.5 bg-accent-orange/10 text-accent-orange text-xs font-bold uppercase tracking-wider border border-accent-orange/20 rounded">Coming
-                                Soon</span>
+                                class="px-2 py-0.5 bg-[#151722] text-gray-400 text-xs font-bold uppercase tracking-wider border border-white/10 rounded">Próximamente</span>
                         </div>
-                        <p class="text-[#5f758c] max-w-2xl text-lg">
-                            Design your own physical systems using a drag-and-drop interface. Connect springs, masses,
-                            dampers, and electrical components to simulate custom scenarios.
+                        <p class="text-[#9aa0b0] max-w-2xl text-lg">
+                            Simula tus propios sistemas físicos configurando la interfaz y los parámetros. Conecta
+                            resortes, masas,
+                            amortiguadores y componentes eléctricos para simular escenarios personalizados de tu modelo.
                         </p>
                     </div>
                     <div class="flex-shrink-0">
-                        <button
-                            class="px-6 py-3 rounded-lg border-2 border-dashed border-[#1A1C1E]/20 text-[#1A1C1E]/50 font-medium cursor-not-allowed flex items-center gap-2">
+                        <button disabled onclick="alert('¡Próximamente!'); return false;"
+                            class="px-6 py-3 rounded-lg border-2 border-dashed border-white/20 text-gray-500 font-medium cursor-not-allowed flex items-center gap-2">
                             <span class="material-symbols-outlined">lock</span>
-                            Locked Feature
+                            Función Bloqueada
                         </button>
                     </div>
                 </div>
@@ -236,129 +225,125 @@
         </section>
         <!-- Section 3: Resources -->
         <section>
-            <h2 class="text-2xl font-bold text-[#1A1C1E] tracking-tight flex items-center gap-2 mb-6">
+            <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 mb-6">
                 <span class="material-symbols-outlined text-primary">library_books</span>
-                Academic Resources
+                Recursos Académicos
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Left Column: Documentation -->
-                <div class="bg-white rounded-xl border border-[#E5E7EB] shadow-sm overflow-hidden flex flex-col h-full">
-                    <div class="bg-[#F8FAFC] px-6 py-4 border-b border-[#E5E7EB] flex items-center justify-between">
-                        <h3 class="font-bold text-[#1A1C1E] flex items-center gap-2">
+                <div
+                    class="bg-[#1a1d27] rounded-xl border border-white/10 shadow-sm overflow-hidden flex flex-col h-full opacity-60">
+                    <div class="bg-[#1e2130] px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                        <h3 class="font-bold text-white flex items-center gap-2">
                             <span class="material-symbols-outlined text-[#5f758c]">description</span>
-                            Documentation
+                            Documentación
                         </h3>
                     </div>
                     <div class="p-4 flex flex-col gap-3">
-                        <a class="flex items-center gap-4 p-3 hover:bg-[#F0F2F5] rounded-lg group transition-colors border border-transparent hover:border-[#E5E7EB]"
+                        <a onclick="alert('¡Próximamente!'); return false;"
+                            class="flex items-center gap-4 p-3 hover:bg-[#1e2130] rounded-lg group transition-colors border border-transparent hover:border-white/10 cursor-not-allowed"
                             href="#">
                             <div
-                                class="size-10 rounded bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+                                class="size-10 rounded bg-[#151722] text-gray-500 flex items-center justify-center flex-shrink-0">
                                 <span class="material-symbols-outlined">menu_book</span>
                             </div>
                             <div class="flex-1">
-                                <h4 class="font-medium text-[#1A1C1E] group-hover:text-primary transition-colors">User
-                                    Manual v2.0</h4>
-                                <p class="text-xs text-[#5f758c]">Comprehensive guide to simulation tools</p>
+                                <h4 class="font-medium text-gray-400 group-hover:text-primary transition-colors">
+                                    Preguntas Frecuentes</h4>
+                                <p class="text-xs text-[#5f758c]">Guía completa del funcionamiento del simulador</p>
                             </div>
-                            <span
-                                class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">download</span>
+                            <span class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">lock</span>
                         </a>
-                        <a class="flex items-center gap-4 p-3 hover:bg-[#F0F2F5] rounded-lg group transition-colors border border-transparent hover:border-[#E5E7EB]"
+                        <a onclick="alert('¡Próximamente!'); return false;"
+                            class="flex items-center gap-4 p-3 hover:bg-[#1e2130] rounded-lg group transition-colors border border-transparent hover:border-white/10 cursor-not-allowed"
                             href="#">
                             <div
-                                class="size-10 rounded bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0">
+                                class="size-10 rounded bg-[#151722] text-gray-500 flex items-center justify-center flex-shrink-0">
                                 <span class="material-symbols-outlined">science</span>
                             </div>
                             <div class="flex-1">
-                                <h4 class="font-medium text-[#1A1C1E] group-hover:text-primary transition-colors">
-                                    Theoretical Framework</h4>
-                                <p class="text-xs text-[#5f758c]">Mathematical models and equations</p>
+                                <h4 class="font-medium text-gray-400 group-hover:text-primary transition-colors">
+                                    Marco Teórico</h4>
+                                <p class="text-xs text-[#5f758c]">Por que funciona</p>
                             </div>
-                            <span
-                                class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">download</span>
+                            <span class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">lock</span>
                         </a>
-                        <a class="flex items-center gap-4 p-3 hover:bg-[#F0F2F5] rounded-lg group transition-colors border border-transparent hover:border-[#E5E7EB]"
+                        <a onclick="alert('¡Próximamente!'); return false;"
+                            class="flex items-center gap-4 p-3 hover:bg-[#1e2130] rounded-lg group transition-colors border border-transparent hover:border-white/10 cursor-not-allowed"
                             href="#">
                             <div
-                                class="size-10 rounded bg-gray-50 text-gray-600 flex items-center justify-center flex-shrink-0">
+                                class="size-10 rounded bg-[#151722] text-gray-500 flex items-center justify-center flex-shrink-0">
                                 <span class="material-symbols-outlined">code</span>
                             </div>
                             <div class="flex-1">
-                                <h4 class="font-medium text-[#1A1C1E] group-hover:text-primary transition-colors">API
-                                    Reference</h4>
-                                <p class="text-xs text-[#5f758c]">For advanced integration</p>
+                                <h4 class="font-medium text-gray-400 group-hover:text-primary transition-colors">
+                                    Oportunidades de Investigación
+                                </h4>
+                                <p class="text-xs text-[#5f758c]">Para futuros proyectos</p>
                             </div>
-                            <span
-                                class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">open_in_new</span>
+                            <span class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">lock</span>
                         </a>
                     </div>
                 </div>
                 <!-- Right Column: Academic Practice -->
-                <div class="bg-white rounded-xl border border-[#E5E7EB] shadow-sm overflow-hidden flex flex-col h-full">
-                    <div class="bg-[#F8FAFC] px-6 py-4 border-b border-[#E5E7EB] flex items-center justify-between">
-                        <h3 class="font-bold text-[#1A1C1E] flex items-center gap-2">
+                <div
+                    class="bg-[#1a1d27] rounded-xl border border-white/10 shadow-sm overflow-hidden flex flex-col h-full opacity-60">
+                    <div class="bg-[#1e2130] px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                        <h3 class="font-bold text-white flex items-center gap-2">
                             <span class="material-symbols-outlined text-[#5f758c]">experiment</span>
-                            Academic Practice
+                            Prácticas
                         </h3>
                     </div>
                     <div class="p-4 flex flex-col gap-3">
-                        <a class="flex items-center gap-4 p-3 hover:bg-[#F0F2F5] rounded-lg group transition-colors border border-transparent hover:border-[#E5E7EB]"
+                        <a onclick="alert('¡Próximamente!'); return false;"
+                            class="flex items-center gap-4 p-3 hover:bg-[#1e2130] rounded-lg group transition-colors border border-transparent hover:border-white/10 cursor-not-allowed"
                             href="#">
                             <div
-                                class="size-10 rounded bg-orange-50 text-orange-600 flex items-center justify-center flex-shrink-0">
+                                class="size-10 rounded bg-[#151722] text-gray-500 flex items-center justify-center flex-shrink-0">
                                 <span class="material-symbols-outlined">biotech</span>
                             </div>
                             <div class="flex-1">
-                                <h4 class="font-medium text-[#1A1C1E] group-hover:text-primary transition-colors">
-                                    Laboratory Guide #1</h4>
-                                <p class="text-xs text-[#5f758c]">Oscillatory motion experiments</p>
+                                <h4 class="font-medium text-gray-400 group-hover:text-primary transition-colors">
+                                    Guías</h4>
+                                <p class="text-xs text-[#5f758c]">Proximamente</p>
                             </div>
-                            <div class="px-2 py-1 rounded bg-green-100 text-green-700 text-[10px] font-bold">NEW</div>
+                            <div
+                                class="px-2 py-1 rounded bg-[#151722] text-gray-400 border border-white/10 text-[10px] font-bold">
+                                PRÓXIMAMENTE</div>
                         </a>
-                        <a class="flex items-center gap-4 p-3 hover:bg-[#F0F2F5] rounded-lg group transition-colors border border-transparent hover:border-[#E5E7EB]"
+                        <a onclick="alert('¡Próximamente!'); return false;"
+                            class="flex items-center gap-4 p-3 hover:bg-[#1e2130] rounded-lg group transition-colors border border-transparent hover:border-white/10 cursor-not-allowed"
                             href="#">
                             <div
-                                class="size-10 rounded bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0">
+                                class="size-10 rounded bg-[#151722] text-gray-500 flex items-center justify-center flex-shrink-0">
                                 <span class="material-symbols-outlined">assignment</span>
                             </div>
                             <div class="flex-1">
-                                <h4 class="font-medium text-[#1A1C1E] group-hover:text-primary transition-colors">
-                                    Problem Set: Week 3</h4>
-                                <p class="text-xs text-[#5f758c]">Due: Oct 24th, 2023</p>
+                                <h4 class="font-medium text-gray-400 group-hover:text-primary transition-colors">
+                                    Problemas</h4>
+                                <p class="text-xs text-[#5f758c]">Próximamente</p>
                             </div>
-                            <span
-                                class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">edit_document</span>
+                            <span class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">lock</span>
                         </a>
-                        <a class="flex items-center gap-4 p-3 hover:bg-[#F0F2F5] rounded-lg group transition-colors border border-transparent hover:border-[#E5E7EB]"
+                        <a onclick="alert('¡Próximamente!'); return false;"
+                            class="flex items-center gap-4 p-3 hover:bg-[#1e2130] rounded-lg group transition-colors border border-transparent hover:border-white/10 cursor-not-allowed"
                             href="#">
                             <div
-                                class="size-10 rounded bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0">
+                                class="size-10 rounded bg-[#151722] text-gray-500 flex items-center justify-center flex-shrink-0">
                                 <span class="material-symbols-outlined">quiz</span>
                             </div>
                             <div class="flex-1">
-                                <h4 class="font-medium text-[#1A1C1E] group-hover:text-primary transition-colors">
-                                    Midterm Practice Quiz</h4>
-                                <p class="text-xs text-[#5f758c]">Test your knowledge</p>
+                                <h4 class="font-medium text-gray-400 group-hover:text-primary transition-colors">
+                                    Cuestionarios</h4>
+                                <p class="text-xs text-[#5f758c]">Proximamente</p>
                             </div>
-                            <span
-                                class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">arrow_forward</span>
+                            <span class="material-symbols-outlined text-[#5f758c] group-hover:text-primary">lock</span>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Footer -->
-        <footer class="mt-16 border-t border-[#E5E7EB] pt-8 pb-4">
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-[#5f758c]">
-                <p>© 2026 Dinámica de Sistemas Físicos. All rights reserved.</p>
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a class="hover:text-primary" href="#">Privacy Policy</a>
-                    <a class="hover:text-primary" href="#">Terms of Service</a>
-                    <a class="hover:text-primary" href="#">Support</a>
-                </div>
-            </div>
-        </footer>
+
     </main>
 </body>
 
