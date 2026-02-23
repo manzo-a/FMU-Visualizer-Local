@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador MRA — Masa Resorte Amortiguador</title>
+    <meta name="description" content="Simulador interactivo de sistema masa-resorte-amortiguador con visualización 3D">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- Eel (auto-injected) -->
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="top-bar__left">
+            <button class="btn-back" onclick="window.location.href='main.html'" title="Volver al inicio">
+                ←
+            </button>
+            <div class="logo-icon">⚡</div>
+            <div>
+                <h1 class="top-bar__title">SIMULADOR MRA</h1>
+                <p class="top-bar__subtitle">Masa · Resorte · Amortiguador</p>
+            </div>
+        </div>
+        <div class="top-bar__right">
+            <div class="status-badge" id="statusBadge">
+                <span class="status-dot"></span>
+                <span>Listo</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Left Sidebar: Parameters -->
+        <aside class="sidebar">
+            <!-- Model Parameters Card -->
+            <div class="card">
+                <div class="card__header card__header--blue">
+                    <span class="card__icon">≡</span>
+                    <div style="flex:1">
+                        <h2 class="card__title">PARÁMETROS DEL MODELO</h2>
+                        <p class="card__desc">Configurar variables físicas</p>
+                    </div>
+                    <button class="btn-add-var" id="btnOpenVarPicker" title="Agregar variables del FMU">+</button>
+                </div>
+
+                <!-- Mass -->
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>MASA</span>
+                        <span class="param-badge param-badge--blue">KG</span>
+                    </div>
+                    <div class="param-control">
+                        <div class="param-value" id="massValue">2.0</div>
+                        <input type="range" class="slider slider--blue" id="massSlider" min="0.1" max="10" value="2"
+                            step="0.1">
+                    </div>
+                </div>
+
+                <!-- Damping -->
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>AMORTIGUAMIENTO</span>
+                        <span class="param-badge param-badge--orange">N·s/m</span>
+                    </div>
+                    <div class="param-control">
+                        <div class="param-value" id="dampingValue">1.0</div>
+                        <input type="range" class="slider slider--orange" id="dampingSlider" min="0" max="10" value="1"
+                            step="0.1">
+                    </div>
+                </div>
+
+                <!-- Initial Position -->
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>POSICIÓN INICIAL</span>
+                        <span class="param-badge param-badge--green">m</span>
+                    </div>
+                    <div class="param-control">
+                        <div class="param-value" id="posValue">-5.0</div>
+                        <input type="range" class="slider slider--green" id="posSlider" min="-10" max="10" value="-5"
+                            step="0.5">
+                    </div>
+                </div>
+
+                <!-- Pinned FMU Variables (dynamically added) -->
+                <div id="pinnedVarsContainer"></div>
+            </div>
+
+            <!-- Simulation Settings Card -->
+            <div class="card">
+                <div class="card__header card__header--dark">
+                    <span class="card__icon">⚙</span>
+                    <div>
+                        <h2 class="card__title">SIMULACIÓN</h2>
+                        <p class="card__desc">Parámetros de ejecución</p>
+                    </div>
+                </div>
+
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>STOP TIME</span>
+                        <span class="param-badge param-badge--blue">s</span>
+                    </div>
+                    <input type="number" class="input-field" id="stopTimeInput" value="10" min="0.1" max="1000"
+                        step="0.1">
+                </div>
+
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>TIME STEP (dt)</span>
+                        <span class="param-badge param-badge--blue">s</span>
+                    </div>
+                    <input type="number" class="input-field" id="stepSizeInput" value="0.016" min="0.001" max="1"
+                        step="0.001">
+                </div>
+
+                <div class="param-group">
+                    <div class="param-label">
+                        <span>MÉTODO</span>
+                    </div>
+                    <select class="input-field" id="solverSelect">
+                        <option value="CVode">CVode (Adaptativo)</option>
+                        <option value="Euler">Euler (Paso fijo)</option>
+                    </select>
+                </div>
+
+                <!-- Simulate Button -->
+                <button class="btn btn--primary" id="btnSimular">
+                    <span class="btn__icon">▶</span>
+                    Ejecutar Simulación
+                </button>
+            </div>
+        </aside>
+
+        <!-- Center: 3D View -->
+        <main class="viewport">
+            <div id="canvas3d" class="viewport__canvas"></div>
+
+            <!-- Playback Controls (floating at bottom) -->
+            <div class="playback-bar">
+                <button class="playback-btn" id="btnReset" title="Reiniciar">↻</button>
+                <button class="playback-btn playback-btn--main" id="btnPlay" title="Reproducir">▶</button>
+                <button class="playback-btn" id="btnStop" title="Detener">⏹</button>
+                <div class="playback-divider"></div>
+                <span class="playback-time" id="playbackTime">0.00s</span>
+            </div>
+        </main>
+
+        <!-- Right: Chart -->
+        <aside class="chart-panel">
+            <div class="card">
+                <div class="card__header card__header--dark">
+                    <span class="card__icon">📈</span>
+                    <div>
+                        <h2 class="card__title">POSICIÓN vs TIEMPO</h2>
+                        <p class="card__desc">Eje Y del sistema</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartCanvas"></canvas>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Variable Picker Modal -->
+    <div class="modal-overlay" id="varPickerModal">
+        <div class="modal">
+            <div class="modal__header">
+                <div>
+                    <h2 class="modal__title">Variables del FMU</h2>
+                    <p class="modal__desc">Seleccioná las variables que querés controlar</p>
+                </div>
+                <button class="modal__close" id="btnCloseModal">×</button>
+            </div>
+            <div class="modal__search">
+                <input type="text" class="input-field" id="varSearchInput" placeholder="🔍  Buscar variable...">
+            </div>
+            <div class="modal__body" id="modalVarGroups">
+                <div class="modal__loading" id="modalLoading">
+                    <div class="loading-spinner"></div>
+                    <span>Cargando variables del FMU...</span>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <span class="modal__count" id="selectedCount">0 seleccionadas</span>
+                <button class="btn btn--primary modal__done" id="btnDoneModal">
+                    Aplicar selección
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/scene3d.js"></script>
+    <script src="js/chartModule.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+# Python and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# Builds, distributions and PyInstaller related
+build/
+dist/
+downloads/
+sdist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Tt]humbs.db
+$RECYCLE.BIN/
+*.lnk
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Miscelaneous
+*.log
